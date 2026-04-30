@@ -1,9 +1,9 @@
 <div align="center">
 
 <h1>💚 HAYAT AI</h1>
-<h3>Emergency Medical Guidance System for Hajj Pilgrims</h3>
+<h3>First-Response Emergency Medical Guidance System for Hajj and Umrah Pilgrims</h3>
 <p>
-A Retrieval-Augmented Generation (RAG) system providing immediate, verified emergency medical guidance for Hajj pilgrims.<br/>
+A Retrieval-Augmented Generation (RAG) system designed to provide grounded first-response emergency medical guidance for Hajj and Umrah pilgrims during critical early moments.<br/>
 Built with <b>sentence-transformers</b> + <b>FAISS</b> + <b>Mistral-7B-Instruct</b>.
 </p>
 
@@ -13,7 +13,7 @@ Built with <b>sentence-transformers</b> + <b>FAISS</b> + <b>Mistral-7B-Instruct<
 ![Gradio](https://img.shields.io/badge/Gradio-Interface-orange)
 ![Accuracy](https://img.shields.io/badge/Retrieval%20Accuracy-84.6%25-brightgreen)
 ![Protocols](https://img.shields.io/badge/Protocols-17%20Verified-red)
-
+o
 </div>
 
 ---
@@ -51,7 +51,7 @@ Built with <b>sentence-transformers</b> + <b>FAISS</b> + <b>Mistral-7B-Instruct<
 
 ## Overview
 
-Hayat AI is a domain-specific RAG system built for Hajj pilgrims and their companions. It identifies emergency medical conditions from natural language descriptions and provides immediate, step-by-step guidance grounded in peer-reviewed medical research.
+Hayat AI is a domain-specific RAG system built for Hajj pilgrims and their companions. It identifies likely emergency medical conditions from natural language descriptions and provides structured, step-by-step first-response guidance grounded in peer-reviewed medical research.
 
 The system covers **17 emergency protocols** including heat stroke, heart attack, severe dehydration, crush injuries, fractures, hypoglycemia, asthma attacks, and more - all conditions documented in published Hajj medical literature.
 
@@ -68,7 +68,7 @@ Every year over **2 million pilgrims** from 180+ countries gather in Makkah for 
 - **49.3%** of pilgrims walk in direct sunlight instead of using available transport (Samarkandi et al., 2025)
 - **51.7%** of pilgrims do not take prescribed medications during Hajj (Samarkandi et al., 2025)
 
-In an emergency, pilgrims and their companions need immediate guidance in plain language. Hayat AI fills this gap.
+In an emergency, pilgrims and their companions may need immediate guidance in plain language during those first critical moments before professional medical help fully takes over. Hayat AI is designed to help bridge this first-response gap.
 
 ---
 
@@ -91,7 +91,7 @@ Score Difference Check
                                         ↓
                                User selects one option
                                         ↓
-                               Correct protocol selected
+                               More precise protocol selection supported
         ↓
 Mistral-7B-Instruct (4-bit NF4 quantized) generates structured guidance
         ↓
@@ -109,6 +109,8 @@ Emergency Guidance with actions, DO NOTs, escalation signs, emergency contacts
 ## Knowledge Base
 
 17 emergency protocols grounded in 5 peer-reviewed papers and official Saudi Ministry of Health guidelines:
+
+To the best of the author's knowledge, no publicly available knowledge base was identified that directly provides the clinically structured, retrieval-ready first-response emergency protocol framework this system required. Hayat AI's knowledge base was therefore developed specifically for pilgrimage-focused first-response guidance, emphasizing immediate actions, critical DO NOTs, escalation signs, and disambiguation between medically similar conditions.
 
 | Category | Protocols |
 |----------|-----------|
@@ -146,7 +148,7 @@ Each protocol contains: description, symptoms, immediate actions, DO NOTs, escal
 
 A key innovation in Hayat AI is the **clarification dialogue system**. When the retrieval model detects two similar conditions with cosine scores within 0.06 of each other, instead of guessing it asks the user one targeted question via radio buttons.
 
-This is critical for medical safety - wrong protocol identification in an emergency can cause harm. One extra question takes 3 seconds but ensures correct guidance.
+This is critical for medical safety - wrong protocol identification in an emergency can cause harm. One extra question takes only seconds but is designed to improve protocol precision and reduce avoidable ambiguity.
 
 ### Step-by-step walkthrough
 
@@ -225,7 +227,7 @@ The 8 remaining failures at 84.6% occur exclusively between semantically adjacen
 - **Fracture ↔ Crush Injuries** — both involve trauma and severe pain
 - **Heart Attack ↔ Fainting** — both involve sudden collapse
 
-This is a known limitation of single-label dense retrieval with general-purpose embedding models. The clarification dialogue directly addresses 3 of these 5 ambiguous pairs.
+This is a known limitation of single-label dense retrieval with general-purpose embedding models. The clarification dialogue was specifically designed to reduce ambiguity in 3 of these 5 major overlapping condition pairs.
 
 ---
 
@@ -278,7 +280,7 @@ All 17 emergency protocols are grounded in peer-reviewed research. Full citation
 - **Medical-specific embeddings** (BioBERT/MedBERT) for better disambiguation of similar conditions
 - **Multi-label retrieval** for mixed-symptom queries
 - **Offline mode** for use without internet during Hajj
-- **Formal clinical evaluation** with medical professionals
+- **Formal clinical evaluation** with healthcare professionals to further validate safety and effectiveness
 - **Expanded knowledge base** beyond 17 protocols
 
 ---
@@ -294,6 +296,6 @@ MS Artificial Intelligence — King Saud University, Riyadh
 ---
 
 <div align="center">
-<p>Built with 💚 for the safety of Hajj pilgrims worldwide</p>
+<p>Built with 💚 to support safer first-response awareness for Hajj and Umrah pilgrims worldwide</p>
 <p>⚠️ For guidance only — always call 937 or 977 in a life-threatening emergency</p>
 </div>
