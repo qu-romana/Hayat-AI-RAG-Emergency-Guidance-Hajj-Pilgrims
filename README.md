@@ -22,6 +22,17 @@ Built with <b>sentence-transformers</b> + <b>FAISS</b> + <b>Mistral-7B-Instruct<
 
 ---
 
+## 🚀 Live Demo
+
+**Try Hayat AI instantly - no setup required:**
+
+👉 [**Launch Hayat AI**](https://huggingface.co/spaces/RomanaQureshi/Hayat-AI-Hajj-Medical-Emergency-Guidance)
+
+> Live demo uses Groq API. Notebook version uses Mistral-7B-Instruct locally.
+
+---
+
+
 ## 📋 Table of Contents
 
 - [Overview](#overview)
