@@ -275,16 +275,28 @@ All 17 emergency protocols are grounded in peer-reviewed research. Full citation
 ---
 
 ## Future Work
-
-- **Arabic language support** for Arab-speaking pilgrims
+- **Arabic and multilingual support** for Arab-speaking, Urdu-speaking, and other non-English pilgrims
 - **Medical-specific embeddings** (BioBERT/MedBERT) for better disambiguation of similar conditions
 - **Multi-label retrieval** for mixed-symptom queries
 - **Offline mode** for use without internet during Hajj
 - **Formal clinical evaluation** with healthcare professionals to further validate safety and effectiveness
-- **Expanded knowledge base** beyond 17 protocols
+- **Expanded knowledge base** beyond 17 protocols, including head trauma and burns
+- **Head Injury and Trauma protocols** based on peer-reviewed Hajj injury research
+
 
 ---
+## Citation & Copyright
 
+© 2026 Romana Qureshi. All rights reserved.
+
+Knowledge base and protocols manually curated by Romana Qureshi.  
+If you use this work, please cite accordingly.
+
+If you use Hayat AI in your research, please cite:
+
+```
+Romana Qureshi, Hayat AI: First-Response Emergency Guidance for Hajj and Umrah Pilgrims (2026), GitHub repository: https://github.com/qu-romana/Hayat-AI-RAG-Emergency-Guidance-Hajj-Pilgrims
+```
 ## Author
 
 **Romana Qureshi**
