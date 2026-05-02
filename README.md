@@ -12,7 +12,7 @@ Built with <b>sentence-transformers</b> + <b>FAISS</b> + <b>Mistral-7B-Instruct<
 ![Mistral](https://img.shields.io/badge/Mistral-7B--Instruct-purple)
 ![Gradio](https://img.shields.io/badge/Gradio-Interface-orange)
 ![Accuracy](https://img.shields.io/badge/Retrieval%20Accuracy-84.6%25-brightgreen)
-![Protocols](https://img.shields.io/badge/Protocols-17%20Verified-red)
+![Protocols](https://img.shields.io/badge/Protocols-20%20Verified-red)
 o
 </div>
 
@@ -53,7 +53,7 @@ o
 
 Hayat AI is a domain-specific RAG system built for Hajj pilgrims and their companions. It identifies likely emergency medical conditions from natural language descriptions and provides structured, step-by-step first-response guidance grounded in peer-reviewed medical research.
 
-The system covers **17 emergency protocols** including heat stroke, heart attack, severe dehydration, crush injuries, fractures, hypoglycemia, asthma attacks, and more - all conditions documented in published Hajj medical literature.
+The system covers **20 emergency protocols** including heat stroke, heart attack, severe dehydration, crush injuries, fractures, hypoglycemia, asthma attacks, and more - all conditions documented in published Hajj medical literature.
 
 ---
 
@@ -108,7 +108,7 @@ Emergency Guidance with actions, DO NOTs, escalation signs, emergency contacts
 
 ## Knowledge Base
 
-17 emergency protocols grounded in 5 peer-reviewed papers and official Saudi Ministry of Health guidelines:
+20 emergency protocols grounded in 6 peer-reviewed papers, 2 ANZCOR clinical guidelines, and official Saudi Ministry of Health guidelines:
 
 To the best of the author's knowledge, no publicly available knowledge base was identified that directly provides the clinically structured, retrieval-ready first-response emergency protocol framework this system required. Hayat AI's knowledge base was therefore developed specifically for pilgrimage-focused first-response guidance, emphasizing immediate actions, critical DO NOTs, escalation signs, and disambiguation between medically similar conditions.
 
@@ -118,11 +118,11 @@ To the best of the author's knowledge, no publicly available knowledge base was 
 | Cardiovascular | Heart Attack (AMI) |
 | Respiratory | Severe Pneumonia, Acute Asthma Attack, COPD Exacerbation |
 | Metabolic | Hypoglycemia, Severe Dehydration |
-| Trauma | Fracture, Ankle Sprain, Crush Injuries |
+| Trauma | Fracture, Ankle Sprain, Crush Injuries, Head Injury, Severe Bleeding |
 | Neurological | Fainting / Syncope |
 | Gastrointestinal | Acute Gastroenteritis |
 | ENT | Nosebleed (Epistaxis) |
-| Skin & Musculoskeletal | Skin Irritation / Chafing, Muscle Cramps |
+| Skin & Musculoskeletal | Skin Irritation / Chafing, Muscle Cramps, Burns |
 | Diabetic | Diabetic Foot Infection / Cellulitis |
 
 Each protocol contains: description, symptoms, immediate actions, DO NOTs, escalation signs, risk factors, and distinguishing features for disambiguation.
@@ -193,7 +193,7 @@ This is critical for medical safety - wrong protocol identification in an emerge
 
 ### Test Set
 
-52 queries grounded strictly in peer-reviewed Hajj medical research. Every query traces back to a documented case, patient presentation, or clinical statistic from the 5 source papers. No hallucinated symptoms or invented scenarios.
+52 queries grounded strictly in peer-reviewed Hajj medical research. Every query traces back to a documented case, patient presentation, or clinical statistic from the source papers. No hallucinated symptoms or invented scenarios.
 
 **Query distribution across 17 protocols:**
 
@@ -215,7 +215,17 @@ This is critical for medical safety - wrong protocol identification in an emerge
 | v3 | Cosine similarity — IndexFlatIP + normalization | **84.6% (44/52)** |
 | v4 | Clarification dialogue — simulated upper bound* | 90.4% (47/52) |
 
-*90.4% represents the upper bound assuming users correctly answer clarifying questions for ambiguous pairs. **84.6% is the verified baseline** without any clarification dialogue.
+*90.4% represents the upper bound assuming 
+users correctly answer clarifying questions 
+for ambiguous pairs. **84.6% is the verified 
+baseline** without any clarification dialogue.
+
+> **Note:** Evaluation was conducted on the 
+> original 17-protocol system. Knowledge base 
+> has since been expanded to 20 protocols 
+> with addition of Head Injury, Severe Bleeding, 
+> and Burns protocols based on ANZCOR clinical 
+> guidelines and Cureus 2022 Hajj trauma research.
 
 ### Failure Analysis
 
@@ -258,7 +268,7 @@ torch
 
 ## Sources
 
-All 17 emergency protocols are grounded in peer-reviewed research. Full citations in [SOURCES.md](SOURCES.md).
+All 20 emergency protocols are grounded in peer-reviewed research. Full citations in [SOURCES.md](SOURCES.md).
 
 1. **Khan et al. (2018).** Morbidity and mortality amongst Indian Hajj pilgrims. *Journal of Infection and Public Health*, 11(2), 165–170. https://doi.org/10.1016/j.jiph.2017.06.004
 
@@ -270,19 +280,52 @@ All 17 emergency protocols are grounded in peer-reviewed research. Full citation
 
 5. **Rahman et al. (2017).** Mass Gatherings and Public Health: Case Studies from the Hajj. *Annals of Global Health*, 83(2), 386–393. https://doi.org/10.1016/j.aogh.2016.12.001
 
-6. **Saudi Ministry of Health / Nusuk.** Official Hajj Health Guidelines. https://hajj.nusuk.sa/nusuk/health/guidelines. Accessed January 2026.
+6. **Al-Hayani et al. (2022).** Trauma and 
+Injuries Pattern During Hajj 1443 (2022). 
+*Cureus*, 15(7), e41751. 
+https://doi.org/10.7759/cureus.41751
+
+7. **ANZCOR Guideline 9.1.4** — First Aid 
+Management of Head Injury (2025/2026). 
+https://www.anzcor.org/home/first-aid-management-of-injuries/guideline-9-1-4-head-injury
+
+8. **ANZCOR Guideline 9.1.1** — First Aid 
+for Management of Bleeding (2025/2026). 
+https://www.anzcor.org/home/first-aid/guideline-9-1-1-first-aid-for-management-of-bleeding/downloadpdf
+
+9. **Saudi Ministry of Health / Nusuk.**
 
 ---
 
 ## Future Work
-- **Arabic and multilingual support** for Arab-speaking, Urdu-speaking, and other non-English pilgrims
-- **Medical-specific embeddings** (BioBERT/MedBERT) for better disambiguation of similar conditions
-- **Multi-label retrieval** for mixed-symptom queries
-- **Offline mode** for use without internet during Hajj
-- **Formal clinical evaluation** with healthcare professionals to further validate safety and effectiveness
-- **Expanded knowledge base** beyond 17 protocols, including head trauma and burns
-- **Head Injury and Trauma protocols** based on peer-reviewed Hajj injury research
+- **Hayat AI Multilingual** — separate 
+  companion app under development supporting 
+  Arabic, Urdu, Hindi, and English for 
+  broader pilgrim accessibility
 
+- **Medical-specific embeddings** 
+  (BioBERT/MedBERT) for better disambiguation 
+  of similar conditions
+
+- **Multi-label retrieval** for mixed-symptom 
+  queries returning top 2 protocols 
+  simultaneously
+
+- **Offline mode** for use without internet 
+  during Hajj when connectivity is limited
+
+- **Formal clinical evaluation** with 
+  healthcare professionals to further 
+  validate safety and effectiveness
+
+- **Re-evaluation** of expanded 20-protocol 
+  system with updated test queries including 
+  new Head Injury, Severe Bleeding, and 
+  Burns protocols
+
+- **Arabic and multilingual knowledge base** 
+  expansion with Hajj-specific medical 
+  terminology in target languages
 
 ---
 ## Citation & Copyright
