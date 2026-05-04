@@ -299,13 +299,11 @@ All protocols are grounded in verified sources. Full citations in [SOURCES.md](S
 
 ## Future Work
 
-- **Hayat AI Multilingual** — separate companion app under development supporting Arabic, Urdu, Hindi, and English for broader pilgrim accessibility
-- **Medical-specific embeddings** (BioBERT/MedBERT) for better disambiguation of similar conditions
-- **Multi-label retrieval** for mixed-symptom queries returning top 2 protocols simultaneously
-- **Offline mode** for use without internet during Hajj when connectivity is limited
-- **Formal clinical evaluation** with healthcare professionals to further validate safety and effectiveness
-- **Re-evaluation** of expanded 20-protocol system with updated test queries including new Head Injury, Severe Bleeding, and Burns protocols
-- **Arabic and multilingual knowledge base** expansion with Hajj-specific medical terminology in target languages
+- **Hayat AI Multilingual** — I am currently working on a multilingual version to support Arabic, Urdu, Hindi, and English for broader pilgrim accessibility.
+- **Multi-label retrieval** for mixed-symptom queries returning top 2 protocols simultaneously.
+- **Offline mode** for use without internet during Hajj when connectivity is limited.
+- **Formal clinical evaluation** — collaboration with healthcare professionals would further strengthen deployment confidence and safety validation.
+- **Re-evaluation** of expanded 20-protocol system with updated test queries including new Head Injury, Severe Bleeding, and Burns protocols.
 
 ---
 
