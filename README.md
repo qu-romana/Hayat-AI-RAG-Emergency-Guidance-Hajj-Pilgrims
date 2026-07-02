@@ -226,10 +226,17 @@ This is critical for medical safety — wrong protocol identification in an emer
 
 *90.4% represents the upper bound assuming users correctly answer clarifying questions for ambiguous pairs. **84.6% is the verified baseline** without any clarification dialogue.
 
-> **Note:** Evaluation was conducted on the original 17-protocol system. The live app knowledge base has since been expanded to 20 protocols with addition of Head Injury, Severe Bleeding, and Burns protocols based on ANZCOR clinical guidelines and Cureus 2022 Hajj trauma research.
-
-### Failure Analysis
-
+> **Note:** The research prototype was evaluated on the original 
+> 17-protocol system (90.4% accuracy, 52 queries). The publicly 
+> deployed system was expanded to 20 protocols with addition of 
+> Head Injury, Severe Bleeding, and Burns protocols based on ANZCOR 
+> clinical guidelines and Cureus 2022 Hajj trauma research, and 
+> evaluated on HajjMedBench achieving 92.7% accuracy (280/302 queries).
+> Llama 3.3 70B Versatile was deprecated by Groq (July 2026); 
+> the deployed system has been updated to GPT OSS 120B. 
+> All evaluations reported in the paper were conducted on the 
+> original Llama 3.3 70B Versatile system and are unaffected 
+> by this change.
 The 8 remaining failures at 84.6% occur exclusively between semantically adjacent conditions that share overlapping symptom language:
 
 - **Dehydration ↔ Hypoglycemia** — both cause weakness, dizziness, confusion
